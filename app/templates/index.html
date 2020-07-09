@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Anime Tracker</title>
+        <link rel="stylesheet" type="text/css" href="./static/styles/styles.css">
+        <script src="https://use.fontawesome.com/858286e2b5.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+        <script type="text/javascript">
+
+            particlesJS.load('particles-js', './static/particles/particlesjs-config.json', function() {
+                console.log('callback - particles.js config loaded');
+            });
+
+            $(document).ready(() => {
+                $(window).scroll(() => {
+                    var scroll = $(window).scrollTop();
+                    if (scroll > 100) {
+                        $("nav").addClass("nav-scroll");
+                    } else {
+                        $("nav").removeClass("nav-scroll");
+                    }
+                });
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="particles-js"></div>
+
+        {% if session["logged_in"] %}
+        <nav>
+            <ul>
+                <li class="nav-item">
+                    <a href="/myshows">My Shows</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#help">Help</a>
+                </li>
+                <li class="nav-pfp">
+                    <a href="/profile">
+                        <div class="circular">
+                            <img src="{{ profile_picture }}" alt="pfp">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        {% endif %}
+
+        <section id="landing">
+            <h1>Anime Tracker</h1>
+            <p>~be up to date with your favourite shows~</p>
+            {% if session["logged_in"] %}
+                <a href="/google/logout" class="button">Logout <br> <span class="fa fa-google"></span></a>
+            {% else %}
+                <a href="/google/login" class="button">Sign Up <br> <span class="fa fa-google"></span></a>
+            {% endif %}
+        </section>
+
+        <section id="about">
+            <h1>What is Anime Tracker?</h1>
+            <!-- IFRAME FOR VIDEO HERE -->
+            <div id="video-wrapper">
+                <iframe width="853" height="480" src="https://www.youtube.com/embed/9YffrCViTVk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="tutorial">
+            <ul id="tutorial-steps">
+                <li id="login-step" class="image-right">
+                    <h4>Login Using Google</h4>
+                    <p>Login above or click here to authorize and allow Anime Tracker to create an account.</p>
+                </li>
+                <li id="next-step-1" class="image-right"></li>
+                <li id="next-step-2" class="image-right"></li>
+                <li id="next-step-3" class="image-right"></li>
+            </ul>
+        </section>
+
+    </body>
+
+</html>
