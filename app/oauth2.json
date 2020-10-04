@@ -1,6 +1,0 @@
-{
-    "redirect_uri": "http://localhost:5000/google/auth",
-    "base_uri": "http://localhost:5000",
-    "clientid": "363830268373-j9i1hrsr2umroa6f1sar86pipaaihrkk.apps.googleusercontent.com",
-    "secret": "u0H3zH-iti0KncM4uFpRJYoL"
-}
